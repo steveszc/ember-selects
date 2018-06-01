@@ -1,1 +1,1 @@
-# How to use select-menu
+# select-menu

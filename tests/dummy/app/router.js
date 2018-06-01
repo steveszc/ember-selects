@@ -9,6 +9,8 @@ const Router = AddonDocsRouter.extend({
 Router.map(function() {
   docsRoute(this, function() {
     this.route("quickstart");
+    this.route("customization");
+    this.route("treeshaking");
     this.route("patterns", function() {
       this.route("native");
       this.route("custom-options");

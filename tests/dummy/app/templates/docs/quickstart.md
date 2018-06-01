@@ -36,7 +36,7 @@ In it's simplest form, an `ember-selects` component takes an array of strings of
 
 {{#docs-snippet name='quickstart-inline.hbs' title='inline-invocation/template.hbs'}}
 
-  {{select-listbox
+  {{select-native
     onchange=(action 'changeFruit')
     selected=currentFruit
     options=fruits}}
