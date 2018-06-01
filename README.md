@@ -1,29 +1,23 @@
-ember-ui-select
-==============================================================================
+# ember-selects
 
 [Short description of the addon.]
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
-ember install ember-ui-select
+ember install ember-selects
 ```
 
-
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 [Longer description of how to use the addon in apps.]
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 ### Installation
 
 * `git clone <repository-url>`
-* `cd ember-ui-select`
+* `cd ember-selects`
 * `npm install`
 
 ### Linting
@@ -44,7 +38,6 @@ Contributing
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
