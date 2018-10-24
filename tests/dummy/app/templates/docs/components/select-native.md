@@ -1,22 +1,39 @@
 # select-native
 
-{{#docs-snippet name='component-select-native-inline.hbs' title='inline-invocation/select-native/template.hbs'}}
+{{#demo-context/select-native as |context|}}
 
-  {{select-native
-    onchange=(action 'changeFruit')
-    selected=currentFruit
-    options=fruits}}
+  {{#docs-demo as |demo|}}
+    {{#demo.example name='docs-select-native-inline.hbs'}}
+      <p>The selected value is: {{context.currentColor}}</p>
+      <div>
+        {{select-native
+          onchange=context.changeColor
+          selected=context.currentColor
+          options=context.colors}}
+      </div>
+    {{/demo.example}}
 
-{{/docs-snippet}}
+    {{demo.snippet 'docs-select-native-inline.hbs'}}
+  {{/docs-demo}}
 
-{{#docs-snippet name='component-select-native-block.hbs' title='block-invocation/select-native/template.hbs'}}
+  {{#docs-demo as |demo|}}
+    {{#demo.example name='docs-select-native-block.hbs'}}
+      <p>The selected value is: {{context.currentUser.name}}</p>
+      <div>
+        {{#select-native
+          valueKey="userId"
+          placeholder="Choose a user"
+          onchange=context.changeUser
+          selected=context.currentUser
+          options=context.users as |user|}}
+          {{user.name}} ({{user.company}})
+        {{/select-native}}
+      </div>
+    {{/demo.example}}
 
-  {{#select-native
-    onchange=(action 'changeUser')
-    key="userId"
-    selected=currentUser
-    options=users as |options|}}
-    {{option.name}} ({{option.userId}})
-  {{/select-native}}
+    {{demo.snippet 'docs-select-native-block.hbs'}}
+  {{/docs-demo}}
 
-{{/docs-snippet}}
+{{/demo-context/select-native}}
+
+
