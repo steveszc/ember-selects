@@ -5,7 +5,10 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steveszc/ember-selects.git"
+  },
   "license": "MIT",
   "author": "Steve Sczecina",
   "directories": {
