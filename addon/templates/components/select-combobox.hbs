@@ -1,0 +1,47 @@
+<input
+  autocomplete="off"
+  aria-activedescendant={{or activedescendant ""}}
+  aria-autocomplete="list"
+  aria-expanded={{if shouldShowListbox "true" "false"}}
+  aria-invalid={{if isUserInputValid "false" "true"}}
+  aria-labelledby={{ariaLabelledBy}}
+  aria-owns={{concat elementId "listbox"}}
+  aria-required={{if required "true" "false"}}
+  class={{concat inputClass " " (if (not isUserInputValid) invalidInputClass) (if isReadonly " readonly")}}
+  disabled={{isDisabled}}
+  id={{inputId}}
+  oninput={{action "didType"}}
+  onclick={{action "didClickInput"}}
+  placeholder={{placeholder}}
+  readonly={{isReadonly}}
+  required={{required}}
+  role="combobox"
+  spellcheck="false"
+  type={{type}}
+  value={{value}}
+>
+
+<div
+  class={{if shouldShowListbox listboxClass "hide"}}
+  id={{concat elementId "listbox"}}
+  role="listbox"
+>
+  {{#if shouldShowListbox}}
+    {{#each options as |listboxOption|}}
+      {{#let (concat elementId "-" (if listboxOption.id listboxOption.id (dasherize listboxOption)))as |optionId|}}
+        <div
+          class={{concat optionClass " " (if (eq activedescendant optionId) activeOptionClass) " " (if (eq selectedId optionId) selectedOptionClass)}}
+          role="option"
+          tabindex="-1"
+          id={{optionId}}
+          aria-selected={{if (eq optionId selectedId) "true" "false"}}
+          {{action "didSelect" listboxOption}}
+        >
+          {{yield listboxOption}}
+        </div>
+      {{/let}}
+    {{else if emptyOption}}
+      {{emptyOption}}
+    {{/each}}
+  {{/if}}
+</div>
