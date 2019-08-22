@@ -22,7 +22,8 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "test:all": "ember try:each"
+    "test:all": "ember try:each",
+    "deploy": "ember deploy production"
   },
   "dependencies": {
     "ember-cli-babel": "^7.7.3",
