@@ -7,8 +7,11 @@
       <p>The selected value is: {{context.currentColor}}</p>
       <div>
         {{select-combobox
-          onchange=context.changeColor
+          onInput=context.changeColor
+          onSelect=context.changeColor
           selected=context.currentColor
+          listboxClass="listbox"
+          optionClass="option"
           options=context.colors}}
       </div>
     {{/demo.example}}
@@ -21,10 +24,14 @@
       <p>The selected value is: {{context.currentUser.name}}</p>
       <div>
         {{#select-combobox
-          valueKey="userId"
+          valueKey="name"
+          searchField="name"
           placeholder="Choose a user"
-          onchange=context.changeUser
+          onInput=context.changeUser
+          onSelect=context.changeUser
           selected=context.currentUser
+          listboxClass="listbox"
+          optionClass="option"
           options=context.users as |user|}}
           {{user.name}} ({{user.company}})
         {{/select-combobox}}
