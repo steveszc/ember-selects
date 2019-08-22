@@ -1,32 +1,32 @@
 <select
-    id={{concat elementId '-select'}}
-    class={{selectClass}}
-    placeholder={{placeholder}}
-    aria-label={{aria-label}}
-    aria-labelledby={{aria-labelledby}}
-    disabled={{disabled}}
-    required={{required}}
-    aria-required={{required}}
-    onfocus={{action 'didFocus'}}
-    onblur={{action 'didBlur'}}
-    onchange={{action 'didChangeOption' value="target.value"}}
-    data-test-select
+  id={{concat elementId "-select"}}
+  class={{selectClass}}
+  placeholder={{placeholder}}
+  aria-label={{aria-label}}
+  aria-labelledby={{aria-labelledby}}
+  disabled={{disabled}}
+  required={{required}}
+  aria-required={{required}}
+  onfocus={{action "didFocus"}}
+  onblur={{action "didBlur"}}
+  onchange={{action "didChangeOption" value="target.value"}}
+  data-test-select
 >
-    {{#unless selected}}
-        <option value="" disabled selected>{{placeholder}}</option>
-    {{/unless}}
-    {{#each options as |option index|}}
-        <option
-            data-test-option={{index}}
-            class={{optionClass}}
-            value={{or (get option valueKey) index}}
-            label={{unless hasBlock (or (get option labelKey) option)}}
-            selected={{is-equal (or (get option valueKey) option) (or (get selected valueKey) selected)}}
-            disabled={{or (get option disabledKey) false}}
-        >
-            {{#if hasBlock}}
-                {{yield option}}
-            {{/if}}
-        </option>
-    {{/each}}
+  {{#unless selected}}
+    <option value="" disabled selected>{{placeholder}}</option>
+  {{/unless}}
+  {{#each options as |_option index|}}
+    <option
+      data-test-option={{index}}
+      class={{optionClass}}
+      value={{or (get _option valueKey) index}}
+      label={{unless hasBlock (or (get _option labelKey) _option)}}
+      selected={{is-equal (or (get _option valueKey) _option) (or (get selected valueKey) selected)}}
+      disabled={{or (get _option disabledKey) false}}
+    >
+      {{#if hasBlock}}
+        {{yield _option}}
+      {{/if}}
+    </option>
+  {{/each}}
 </select>

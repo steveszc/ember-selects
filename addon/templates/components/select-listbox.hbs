@@ -1,4 +1,4 @@
-<div id={{concat elementId '-select-listbox-description'}} class="hide">
+<div id={{concat elementId "-select-listbox-description"}} class="hide">
   {{description}} Browse the options using the up and down arrow keys. Pressing enter will select the current option.
 </div>
 <input role="combobox"
@@ -7,10 +7,10 @@
   class="select-listbox__input"
   aria-label={{aria-label}}
   aria-autocomplete="none"
-  aria-owns={{concat elementId '-select-listbox'}}
-  aria-controls={{concat elementId '-select-listbox-status'}}
-  aria-expanded={{if isExpanded 'true' 'false'}}
-  aria-describedby={{concat elementId '-select-listbox-description'}}
+  aria-owns={{concat elementId "-select-listbox"}}
+  aria-controls={{concat elementId "-select-listbox-status"}}
+  aria-expanded={{if isExpanded "true" "false"}}
+  aria-describedby={{concat elementId "-select-listbox-description"}}
   autocomplete="off"
   autocorrect="off"
   autocapitalize="none"
@@ -27,95 +27,105 @@
 >
 
 {{#if (and allowClear selected.length)}}
-    <button type="button"
-        class="select-one__clear"
-        aria-label="clear"
-        aria-controls={{concat elementId '-select-listbox'}}
-        {{action "deselectAll"}}>
-        &times;
-    </button>
+  <button type="button"
+    class="select-one__clear"
+    aria-label="clear"
+    aria-controls={{concat elementId "-select-listbox"}}
+    {{action "deselectAll"}}
+  >
+    &times;
+  </button>
 {{/if}}
 
 <div role="status"
-    aria-live="polite"
-    class="hide"
-    id={{concat elementId '-select-listbox-status'}}>
-    {{options.length}} options
+  aria-live="polite"
+  class="hide"
+  id={{concat elementId "-select-listbox-status"}}
+>
+  {{options.length}} options
 </div>
 
 <div class="select-listbox__options-container">
-    <ul role="listbox"
-        aria-multiselectable="true"
-        class="select-listbox__options {{if isExpanded 'select-listbox__options--expanded' 'select-listbox__options--collapsed'}}"
-        id={{concat elementId '-select-listbox'}}
-        aria-activedescendant={{activedescendant}}>
-
-        {{#if controls}}
-            <li tabindex="-1" role="presentation" class="checkbox-row checkbox--controls">
-                <div class="btn-group">
-                    <button type="button"
-                        id={{concat elementId '-option-control-0'}}
-                        class="btn--control i i--schedule-eye"
-                        {{action "selectAll"}}>
-                        Show all
-                    </button>
-                    <button type="button"
-                        id={{concat elementId '-option-control-1'}}
-                        class="btn--control i i--schedule-eye-closed"
-                        {{action "deselectAll"}}>
-                        Hide all
-                    </button>
-                </div>
-                <button type="button"
-                    id={{concat elementId '-option-control-2'}}
-                    class="btn--control btn--close i i--schedule-x"
-                    {{action "close"}}>
-                    <span class="hide">Close</span>
-                </button>
-            </li>
-        {{/if}}
-        {{#each options as |option i| }}
-            {{#if (and option.groupName option.options)}}
-                <li role="presentation"
-                    tabindex="-1"
-                    class="select-listbox__group-name"
-                    id={{concat elementId '-group-name-' i}}>
-                    {{option.groupName}}
-                </li>
-                {{#each option.options as |option j|}}
-                    <li role="option"
-                        tabindex="-1"
-                        class="{{if dropdown 'checkbox-row' 'select-listbox__option'}} {{if (eq activedescendant (concat elementId '-option-' i '-' j)) 'focus'}}"
-                        id={{concat elementId '-option-' i '-' j}}
-                        onclick={{action "didToggleOption" option}}
-                        aria-selected={{if (included-in option selected key) 'true' 'false'}}>
-                        {{! template-lint-disable nested-interactive }}
-                        <input type="checkbox"
-                            role="presentation"
-                            tabindex="-1"
-                            checked={{included-in option selected key}}>
-                        {{yield option}}
-                    </li>
-                {{/each}}
-            {{else}}
-                <li role="option"
-                    tabindex="-1"
-                    class="{{if dropdown 'checkbox-row' 'select-listbox__option'}} {{if (eq activedescendant (concat elementId '-option-' i '-0')) 'focus'}}"
-                    id={{concat elementId '-option-' i '-0'}}
-                    onclick={{action "didToggleOption" option}}
-                    aria-selected={{if (included-in option selected key) 'true' 'false'}}>
-                    {{! template-lint-disable nested-interactive }}
-                    <input type="checkbox"
-                        class="checkbox-row"
-                        role="presentation"
-                        tabindex="-1"
-                        checked={{included-in option selected key}}>
-                    {{yield option}}
-                    {{#if (included-in option selected key)}}
-                        <span class="hide">selected</span>
-                    {{/if}}
-                </li>
-            {{/if}}
+  <ul role="listbox"
+    aria-multiselectable="true"
+    class="select-listbox__options {{if isExpanded "select-listbox__options--expanded" "select-listbox__options--collapsed"}}"
+    id={{concat elementId "-select-listbox"}}
+    aria-activedescendant={{activedescendant}}
+  >
+    {{#if controls}}
+      <li tabindex="-1" role="presentation" class="checkbox-row checkbox--controls">
+        <div class="btn-group">
+          <button type="button"
+            id={{concat elementId "-option-control-0"}}
+            class="btn--control i i--schedule-eye"
+            {{action "selectAll"}}
+          >
+            Show all
+          </button>
+          <button type="button"
+            id={{concat elementId "-option-control-1"}}
+            class="btn--control i i--schedule-eye-closed"
+            {{action "deselectAll"}}
+          >
+            Hide all
+          </button>
+        </div>
+        <button type="button"
+          id={{concat elementId "-option-control-2"}}
+          class="btn--control btn--close i i--schedule-x"
+          {{action "close"}}
+        >
+          <span class="hide">Close</span>
+        </button>
+      </li>
+    {{/if}}
+    {{#each options as |option i| }}
+      {{#if (and option.groupName option.options)}}
+        <li role="presentation"
+          tabindex="-1"
+          class="select-listbox__group-name"
+          id={{concat elementId "-group-name-" i}}
+        >
+          {{option.groupName}}
+        </li>
+        {{#each option.options as |option j|}}
+          <li role="option"
+            tabindex="-1"
+            class="{{if dropdown "checkbox-row" "select-listbox__option"}} {{if (eq activedescendant (concat elementId "-option-" i "-" j)) "focus"}}"
+            id={{concat elementId "-option-" i "-" j}}
+            onclick={{action "didToggleOption" option}}
+            aria-selected={{if (included-in option selected key) "true" "false"}}
+          >
+            {{! template-lint-disable nested-interactive }}
+            <input type="checkbox"
+              role="presentation"
+              tabindex="-1"
+              checked={{included-in option selected key}}
+            >
+            {{yield option}}
+          </li>
         {{/each}}
-    </ul>
+      {{else}}
+        <li role="option"
+          tabindex="-1"
+          class="{{if dropdown "checkbox-row" "select-listbox__option"}} {{if (eq activedescendant (concat elementId "-option-" i "-0")) "focus"}}"
+          id={{concat elementId "-option-" i "-0"}}
+          onclick={{action "didToggleOption" option}}
+          aria-selected={{if (included-in option selected key) "true" "false"}}
+        >
+          {{! template-lint-disable nested-interactive }}
+          <input type="checkbox"
+            class="checkbox-row"
+            role="presentation"
+            tabindex="-1"
+            checked={{included-in option selected key}}
+          >
+          {{yield option}}
+          {{#if (included-in option selected key)}}
+            <span class="hide">selected</span>
+          {{/if}}
+        </li>
+      {{/if}}
+    {{/each}}
+  </ul>
 </div>
