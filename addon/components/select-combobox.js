@@ -27,7 +27,7 @@ export default Component.extend({
   options: null,
   optionClass: "",
   placeholder: "",
-  scrollToSelection: true,
+  scrollToSelection: false,
   searchField: null,
   selected: null,
   selectedOptionClass: "",
