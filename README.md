@@ -1,6 +1,6 @@
 # ember-selects
 
-[Short description of the addon.]
+[View the docs](https://steveszc.github.io/ember-selects/versions/master/)
 
 
 Compatibility
@@ -20,7 +20,7 @@ ember install ember-selects
 
 ## Usage
 
-[Longer description of how to use the addon in apps.]
+ember-selects provides a set of UI components for selecting things.
 
 ## Contributing
 
