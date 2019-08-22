@@ -6,11 +6,11 @@ export default Component.extend({
 
   colors: computed(() => ["red", "blue", "green", "orange", "pink", "purple"]),
   users: computed(() => [
-    { userId: "a1", name: "Tim Cook", company: "Apple" },
-    { userId: "b2", name: "Satya Nadella", company: "Microsoft" },
-    { userId: "c3", name: "Sundar Pichai", company: "Google" },
-    { userId: "d4", name: "Mark Zuckerberg", company: "Facebook" },
-    { userId: "e5", name: "Larry Gadea", company: "Envoy" }
+    { id: "a1", name: "Tim Cook", company: "Apple" },
+    { id: "b2", name: "Satya Nadella", company: "Microsoft" },
+    { id: "c3", name: "Sundar Pichai", company: "Google" },
+    { id: "d4", name: "Mark Zuckerberg", company: "Facebook" },
+    { id: "e5", name: "Larry Gadea", company: "Envoy" }
   ]),
 
   currentColor: "red",
