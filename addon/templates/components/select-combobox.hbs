@@ -37,7 +37,11 @@
           aria-selected={{if (eq optionId selectedId) "true" "false"}}
           {{action "didSelect" listboxOption}}
         >
-          {{yield listboxOption}}
+          {{#if (has-block)}}
+            {{yield listboxOption}}
+          {{else}}
+            {{listboxOption}}
+          {{/if}}
         </div>
       {{/let}}
     {{else if emptyOption}}
