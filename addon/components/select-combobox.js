@@ -2,37 +2,39 @@ import Component from "@ember/component";
 import { computed, get, set } from "@ember/object";
 import { dasherize } from "@ember/string";
 import { scheduleOnce } from "@ember/runloop";
-//import { PropTypes } from 'ember-prop-types';
+import layout from "../templates/components/select-combobox";
 
 const id = (parentId, child) => `${parentId}-${child.id || dasherize(child)}`;
 
 export default Component.extend({
-  // propTypes: {
-  //   activeOptionClass: PropTypes.string,
-  //   ariaLabel: PropTypes.string,
-  //   ariaLabelledby: PropTypes.string,
-  //   closestOption: PropTypes.string,
-  //   emptyOption: PropTypes.string,
-  //   inputClass: PropTypes.string,
-  //   inputId: PropTypes.string,
-  //   invalidInputClass: PropTypes.string,
-  //   invalidLabelClass: PropTypes.string,
-  //   isDisabled: PropTypes.bool,
-  //   isReadonly: PropTypes.bool,
-  //   listboxClass: PropTypes.string,
-  //   onInput: PropTypes.func,
-  //   onSelect: PropTypes.func,
-  //   options: PropTypes.arrayOf(PropTypes.string),
-  //   optionsClass: PropTypes.string,
-  //   placeholder: PropTypes.string,
-  //   scrollToSelection: PropTypes.bool,
-  //   searchField: PropTypes.string,
-  //   selected: PropTypes.string,
-  //   selectedOptionClass: PropTypes.string,
-  //   type: PropTypes.string,
-  //   validateUserInput: PropTypes.func
-  // },
+  layout,
 
+  // props w/ default values
+  activeOptionClass: "",
+  ariaLabel: "",
+  ariaLabelledby: "",
+  closestOption: null,
+  emptyOption: "no options",
+  inputClass: "",
+  inputId: null,
+  invalidInputClass: "",
+  invalidLabelClass: "",
+  isDisabled: false,
+  isReadonly: false,
+  listboxClass: "",
+  onSelect: () => {},
+  onInput: () => {},
+  options: null,
+  optionClass: "",
+  placeholder: "",
+  scrollToSelection: true,
+  searchField: null,
+  selected: null,
+  selectedOptionClass: "",
+  type: "text",
+  validateUserInput: () => true,
+
+  //state
   userInput: "",
   isUserInputValid: true,
   shouldShowListbox: false,
@@ -229,34 +231,6 @@ export default Component.extend({
           });
       });
     }
-  },
-
-  getDefaultProps() {
-    return {
-      activeOptionClass: "",
-      ariaLabel: "",
-      ariaLabelledby: "",
-      closestOption: null,
-      emptyOption: "no options",
-      inputClass: "",
-      inputId: null,
-      invalidInputClass: "",
-      invalidLabelClass: "",
-      isDisabled: false,
-      isReadonly: false,
-      listboxClass: "",
-      onSelect: () => {},
-      onInput: () => {},
-      options: [],
-      optionClass: "",
-      placeholder: "",
-      scrollToSelection: true,
-      searchField: null,
-      selected: null,
-      selectedOptionClass: "",
-      type: "text",
-      validateUserInput: () => true
-    };
   },
 
   actions: {
