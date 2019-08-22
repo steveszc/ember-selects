@@ -1,0 +1,11 @@
+.option {
+  height: 1rem;
+  padding: 1rem;
+  line-height: 1.5rem;
+}
+
+.listbox {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+}
